@@ -439,21 +439,113 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <body class="article">
 <div id="header">
 <h1>Eddiehub API Documentation</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_authentication">Authentication</a>
+<ul class="sectlevel2">
+<li><a href="#_tokens">Tokens</a></li>
+<li><a href="#_authentication_flow">Authentication-Flow</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div class="sect1">
 <h2 id="_authentication">Authentication</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>There are two authentication-methods within the API. The following chapter shall give an overview on how to create and then use the generated tokens for making requests to the API.<br></p>
+</div>
+<div class="paragraph">
+<p>Please take a look at the Swagger-Documentation of the API to see which tokens needs to be provided for using which endpoint or how the Body-Payload for the different endpoints need to look like. The Swagger-Documentation can be reached with the following path <code>&lt;base-url&gt;/swagger</code></p>
+</div>
 <div class="sect2">
 <h3 id="_tokens">Tokens</h3>
-
+<div class="paragraph">
+<p>The API uses two kinds of tokens.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>API-Token:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The API-Token is a static token, which gets set in the environment-variables as <code>APPROVED_TOKENS</code>.</p>
+</li>
+<li>
+<p>This token is used to authenticate an 'admin-App' against the API. The API-Token is used to generate <strong>Bearer-Tokens</strong>.</p>
+</li>
+<li>
+<p>For generating more than one token they can be passed to the environment-variables as a comma-seperated list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Bearer-Token</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Bearer-Token contains the <strong>keyspace</strong>, <strong>Client-ID</strong> and <strong>Scopes</strong></p>
+</li>
+<li>
+<p>Currenty there are two Scopes available <code>Data.Read</code> and <code>Data.Write</code></p>
+</li>
+<li>
+<p>Client-ID is a unique UUID, which gets generated when generating a new token</p>
+</li>
+<li>
+<p>The token isn&#8217;t valid forever, it will expire after some time</p>
+</li>
+<li>
+<p>The <strong>Keyspace</strong> is the ServerID of the Discord-Bot which consumes the API</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+currently Datastax Astra isn&#8217;t able to generate a new Keyspace on the fly. Therefor the keyspace needs to be created manually before being able to use a new one.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authentication_flow">Authentication-Flow</h3>
+<div class="paragraph">
+<p>There are several steps required to get a Bearer-Token to make authorized calls to the API:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Send a <code>POST</code> request to <code>/auth/token</code>. For that request an API-Token is required.</p>
+</li>
+<li>
+<p>The response will contain a singed <code>accesstoken</code> and several additional info</p>
+</li>
+<li>
+<p>This accesstoken can be used as Bearer-Token for the other Endpoints.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-07 01:30:33 UTC
+Last updated 2021-08-08 13:30:38 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
