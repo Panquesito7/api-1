@@ -448,6 +448,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_authentication_flow">Authentication-Flow</a></li>
 </ul>
 </li>
+<li><a href="#_contribution">Contribution</a>
+<ul class="sectlevel2">
+<li><a href="#_local_environment">Local Environment</a></li>
+<li><a href="#_gitpod">Gitpod</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -542,10 +548,74 @@ currently Datastax Astra isn&#8217;t able to generate a new Keyspace on the fly.
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_contribution">Contribution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For contributing to the API, <strong>docker</strong> and the cloned <strong>code-base</strong> are required.
+One of the dependencies to run the API is a Stargate-Container which represents the database. This service needs to run next to the actual API.<br></p>
+</div>
+<div class="paragraph">
+<p>There are multiple ways to make the contribution</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>From your local development-environment</p>
+</li>
+<li>
+<p>From the cloud with <strong>Gitpod</strong></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_local_environment">Local Environment</h3>
+<div class="paragraph">
+<p>When running the API on your local machine, it&#8217;s required to run docker.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clone the Repo</p>
+</li>
+<li>
+<p>Install your dependencies with <code>npm install</code></p>
+</li>
+<li>
+<p>Run <code>docker-compose up</code> to boot the Stargate-Container</p>
+</li>
+<li>
+<p>As soon docker-compose is completely booted you can start the API with <code>npm run start:dev</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gitpod">Gitpod</h3>
+<div class="paragraph">
+<p>Gitpod is a Service, which provides development environments in the cloud. In case no plan is purchased the reguar <code>Opensource License</code> allows to use the service for 50 hours per month for free.<br>
+All that needs to be done, is logging in to their service with a valid GitHub account.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>[OPTIONAL] Install the Browser Extension from Gitpod. <a href="https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki">Chrome</a> <a href="https://addons.mozilla.org/de/firefox/addon/gitpod/">Firefox</a></p>
+</li>
+<li>
+<p>Just hit the Gitpod button in the <code>README</code> file. Everything will spin up automatically.</p>
+</li>
+<li>
+<p>When you&#8217;re finished with your contribution just close the workspace</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-09 20:43:05 UTC
+Last updated 2021-10-12 08:43:19 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
